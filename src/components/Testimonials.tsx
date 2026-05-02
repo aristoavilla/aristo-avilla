@@ -52,6 +52,7 @@ export default function Testimonials() {
             </article>
           ))}
         </div>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,4 @@
-"use client";
-
 import { useState } from "react";
-import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,19 +8,19 @@ export default function Header() {
     <header className="sticky top-4 z-50 py-4">
       <nav className="content-wrap">
         <div className="mx-auto flex max-w-5xl items-center justify-between rounded-full bg-[#1f2024] px-3 py-2 text-white shadow-2xl">
-          <Link href="#" className="rounded-full bg-[#ff7a3e] px-4 py-2 text-xs font-semibold tracking-wide text-white">
+          <a href="#" className="rounded-full bg-[#ff7a3e] px-4 py-2 text-xs font-semibold tracking-wide text-white">
             Home
-          </Link>
+          </a>
 
           <div className="hidden items-center gap-7 text-sm md:flex">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-white/85 transition hover:text-[#ff7a3e]"
               >
                 {item}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -49,9 +46,9 @@ export default function Header() {
           <div className="mt-3 rounded-2xl bg-[#1f2024] px-5 py-4 text-sm text-white md:hidden">
             <div className="space-y-2">
               {navItems.map((item) => (
-                <Link key={item} href={`#${item.toLowerCase()}`} className="block rounded-lg px-2 py-2 hover:bg-white/10">
+                <a key={item} href={`#${item.toLowerCase()}`} className="block rounded-lg px-2 py-2 hover:bg-white/10">
                   {item}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

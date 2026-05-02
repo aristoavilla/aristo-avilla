@@ -1,34 +1,33 @@
 # Aristo Avilla Portfolio Website
 
 ## Project Overview
-A modern, responsive portfolio website for Aristo Avilla, a Product Designer with 10+ years of experience. Built with Next.js, TypeScript, and Tailwind CSS for optimal performance and maintainability.
+A modern, responsive portfolio website for Aristo Avilla, a Product Designer with 10+ years of experience. Built with React, TypeScript, Tailwind CSS, and Vite for optimal performance and maintainability.
 
 ## Technology Stack
-- **Framework**: Next.js 14+ with App Router
-- **Language**: TypeScript
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
 - **Styling**: Tailwind CSS
-- **Build Tool**: npm
+- **Package Manager**: npm
 - **Deployment**: Vercel
 
 ## Project Structure
 ```
 src/
+├── main.tsx         # Entry point
+├── App.tsx          # Root component
 ├── app/
-│   ├── layout.tsx       # Root layout
-│   ├── page.tsx         # Home page
-│   └── globals.css      # Global styles
-├── components/
-│   ├── Header.tsx       # Navigation header
-│   ├── Hero.tsx         # Hero section
-│   ├── Services.tsx     # Services section
-│   ├── WorkExperience.tsx
-│   ├── WhyHireMe.tsx
-│   ├── Portfolio.tsx    # Portfolio projects
-│   ├── Testimonials.tsx # Client testimonials
-│   ├── BlogPosts.tsx    # Blog section
-│   ├── Contact.tsx      # Contact form
-│   └── Footer.tsx       # Footer
-
+│   └── globals.css  # Global styles
+└── components/
+    ├── Header.tsx       # Navigation header
+    ├── Hero.tsx         # Hero section
+    ├── Services.tsx     # Services section
+    ├── WorkExperience.tsx
+    ├── WhyHireMe.tsx
+    ├── Portfolio.tsx    # Portfolio projects
+    ├── Testimonials.tsx # Client testimonials
+    ├── BlogPosts.tsx    # Blog section
+    ├── Contact.tsx      # Contact form
+    └── Footer.tsx       # Footer
 ```
 
 ## Key Features
@@ -52,7 +51,7 @@ src/
 ## Development Commands
 - `npm run dev` - Start development server (http://localhost:3000)
 - `npm run build` - Build for production
-- `npm start` - Start production server
+- `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 
 ## Getting Started
@@ -86,10 +85,11 @@ src/
 Currently no environment variables required.
 
 ## Performance Optimization
-- Next.js automatic code splitting
-- Image optimization (use next/image for images)
+- Vite fast module resolution
+- Code splitting with dynamic imports
+- Image optimization (use standard img tags or React lazy loading)
 - CSS purging with Tailwind
-- CSS-in-JS optimization
+- Tree shaking of unused code
 
 ## Browser Support
 - Chrome (latest)
@@ -106,6 +106,13 @@ Update the following in relevant components:
 - Twitter/X handle
 - Dribbble portfolio
 
+## Fonts
+Fonts are loaded from Google Fonts via CDN in index.html:
+- Poppins: 400, 500, 600, 700, 800
+- Sora: 400, 600, 700
+
+CSS variables for fonts are defined in globals.css as `--font-poppins` and `--font-sora`.
+
 ## Future Enhancements
 - Add dynamic blog content
 - Implement project filtering
@@ -113,3 +120,4 @@ Update the following in relevant components:
 - Integrate CMS for content management
 - Add analytics
 - Implement contact form backend
+

@@ -29,15 +29,14 @@ export default function WhyHireMe() {
                   <p className="[font-family:var(--font-sora)] text-3xl font-semibold">450+</p>
                   <p className="text-xs text-[#6b7280]">Projects Completed</p>
                 </div>
-                <div className="text-3xl">✓</div>
+                <div>
                   <p className="[font-family:var(--font-sora)] text-3xl font-semibold">120+</p>
                   <p className="text-xs text-[#6b7280]">Happy Partners</p>
-                  <p className="text-gray-600">Happy Clients</p>
                 </div>
-
-              <button className="btn-secondary mt-7 border-[#1f2937] px-8 text-[#1f2937]">Hire me</button>
               </div>
-            <button className="btn-primary mt-8">Hire me</button>
+
+              <button className="btn-primary mt-8">Hire me</button>
+            </div>
           </div>
         </div>
       </div>
