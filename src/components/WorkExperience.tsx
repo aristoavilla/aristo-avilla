@@ -2,21 +2,17 @@ export default function WorkExperience() {
   const experiences = [
     {
       id: 1,
-      company: "Cognizant, Mumbai",
-      position: "Experience Designer",
-      years: "Sep 2016 - July 2020",
+      company: "Remote",
+      position: "Junior Web Developer Assistant",
+      years: "2026 - Present",
+      description: "Working remotely to assist in building and maintaining web applications using modern fullstack technologies.",
     },
     {
       id: 2,
-      company: "Sugee Pvt limited, Mumbai",
-      position: "UI/UX Designer",
-      years: "Sep 2020 - July 2023",
-    },
-    {
-      id: 3,
-      company: "Cineistox, Mumbai",
-      position: "Lead UX Designer",
-      years: "Sep 2023",
+      company: "Vocational High School",
+      position: "Top Graduate · Overall Score 90",
+      years: "Graduated 2025",
+      description: "Graduated as one of the highest score achievers in the class of 2025 with a focus on software engineering.",
     },
   ];
 
@@ -24,7 +20,7 @@ export default function WorkExperience() {
     <section id="resume" className="pb-16 md:pb-24">
       <div className="content-wrap">
         <h2 className="section-title text-center">
-          My <span className="text-[#ff7a3e]">Work Experience</span>
+          My <span className="text-[#ff7a3e]">Experience & Education</span>
         </h2>
 
         <div className="mx-auto mt-10 max-w-5xl space-y-8">
@@ -42,9 +38,7 @@ export default function WorkExperience() {
 
               <div>
                 <h4 className="text-3xl font-semibold text-[#1f2937]">{exp.position}</h4>
-                <p className="mt-2 text-sm text-[#6b7280]">
-                  Improving digital experiences through clean interaction patterns and modern visual language.
-                </p>
+                <p className="mt-2 text-sm text-[#6b7280]">{exp.description}</p>
               </div>
             </div>
           ))}

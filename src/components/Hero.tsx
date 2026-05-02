@@ -10,13 +10,13 @@ export default function Hero() {
           <h1 className="text-center [font-family:var(--font-sora)] text-4xl font-bold leading-tight md:text-7xl">
             I&apos;m <span className="text-[#ff7a3e]">Aristo,</span>
             <br />
-            Product Designer
+            Fullstack Developer
           </h1>
 
           <div className="relative mt-10 grid items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
             <div className="text-center md:text-left">
               <p className="mx-auto max-w-[220px] text-sm text-[#5f6672] md:mx-0">
-                Aristo&apos;s design process balances business goals, usability, and visual identity.
+                Building fast, modern web applications from frontend to backend with clean, scalable code.
               </p>
             </div>
 
@@ -32,8 +32,8 @@ export default function Hero() {
 
             <div className="text-center md:text-right">
               <p className="text-[#ff7a3e]">★★★★★</p>
-              <p className="[font-family:var(--font-sora)] text-4xl font-semibold text-[#1f2937]">10 Years</p>
-              <p className="text-xs text-[#5f6672]">Experience</p>
+              <p className="[font-family:var(--font-sora)] text-4xl font-semibold text-[#1f2937]">TOEIC 850</p>
+              <p className="text-xs text-[#5f6672]">Advanced English</p>
             </div>
           </div>
 

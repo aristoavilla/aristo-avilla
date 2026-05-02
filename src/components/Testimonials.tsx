@@ -1,57 +1,69 @@
-export default function Testimonials() {
-  const testimonials = [
+export default function TechStack() {
+  const categories = [
     {
-      id: 1,
-      name: "Sarah Johnson",
-      title: "CEO, Tech Startup",
-      text: "Aristo transformed our product with exceptional design. Their attention to detail and user-centric approach made all the difference.",
-      rating: 5,
+      name: "Frontend",
+      skills: ["React", "Vite", "TypeScript", "Tailwind CSS", "Shadcn", "MaterialUI", "Formik"],
     },
     {
-      id: 2,
-      name: "Mike Chen",
-      title: "Product Manager, E-commerce",
-      text: "Outstanding work! The design not only looks beautiful but also improved our conversion rates significantly.",
-      rating: 5,
+      name: "Backend",
+      skills: ["Hono", "Drizzle ORM", "Cloudflare Workers + Queue", "Convex"],
     },
     {
-      id: 3,
-      name: "Emma Wilson",
-      title: "Founder, Digital Agency",
-      text: "Working with Aristo was a pleasure. Professional, creative, and always delivers on time.",
-      rating: 5,
+      name: "Database & Storage",
+      skills: ["PostgreSQL", "NeonDB", "Cloudflare R2"],
+    },
+    {
+      name: "APIs",
+      skills: ["Axios", "TanStack Query", "Postman", "Resend"],
+    },
+    {
+      name: "Monitoring & Events",
+      skills: ["Better Stack", "PostHog"],
+    },
+    {
+      name: "AI Tools",
+      skills: ["Claude Code", "GitHub Copilot", "ChatGPT", "Codex"],
+    },
+    {
+      name: "Languages",
+      skills: ["JavaScript", "TypeScript", "SQL"],
+    },
+    {
+      name: "Deployment",
+      skills: ["Vercel", "Cloudflare Worker"],
     },
   ];
 
   return (
-    <section id="testimonials" className="pb-16 md:pb-24">
+    <section id="skills" className="pb-16 md:pb-24">
       <div className="content-wrap">
         <div className="grain overflow-hidden rounded-[2rem] bg-[#101217] px-6 py-12 text-white md:px-8">
           <h2 className="text-center [font-family:var(--font-sora)] text-4xl font-semibold md:text-5xl">
-            Testimonials that
+            Tech Stack &amp;
             <br />
-            speak to my <span className="text-[#ff7a3e]">Results</span>
+            <span className="text-[#ff7a3e]">Skills</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-sm text-white/70">
-            Clients trust my process because every project starts with strategy and ends with outcomes.
+            Tools and technologies I use to build fast, reliable, and scalable applications.
           </p>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.id} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="mb-4 flex gap-2">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-[#ff7a3e]">★</span>
-                ))}
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {categories.map((cat) => (
+              <div key={cat.name} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#ff7a3e]">{cat.name}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm text-white/80"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p className="mb-6 text-sm leading-relaxed text-white/80">{testimonial.text}</p>
-              <div>
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm text-[#ff7a3e]">{testimonial.title}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

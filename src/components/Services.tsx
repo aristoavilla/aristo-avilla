@@ -2,18 +2,18 @@ export default function Services() {
   const services = [
     {
       id: 1,
-      title: "UI/UX Design",
-      imageLabel: "Mobile App",
+      title: "Frontend Development",
+      imageLabel: "React + TypeScript",
     },
     {
       id: 2,
-      title: "Web Design",
-      imageLabel: "Website",
+      title: "Backend Development",
+      imageLabel: "Hono + Cloudflare",
     },
     {
       id: 3,
-      title: "Landing Page",
-      imageLabel: "Campaign",
+      title: "Full Stack Apps",
+      imageLabel: "End-to-End",
     },
   ];
 
@@ -26,7 +26,7 @@ export default function Services() {
               My <span className="text-[#ff7a3e]">Services</span>
             </h2>
             <p className="hidden max-w-sm text-sm text-white/75 md:block">
-              Delivering practical product design with clear UX flow and strong visual direction.
+              Building reliable web applications with modern frameworks, clean APIs, and scalable infrastructure.
             </p>
           </div>
 

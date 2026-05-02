@@ -21,16 +21,16 @@ export default function Contact() {
           </form>
 
           <div className="mt-4 flex flex-wrap justify-center gap-6 text-xs text-[#4b5563]">
-            <span>+91 9876543210</span>
-            <span>aristo.avilla@email.com</span>
-            <span>Mumbai, Maharashtra</span>
+            <span>+62 812-3456-7890</span>
+            <span>aristoavilla@gmail.com</span>
+            <span>Indonesia</span>
           </div>
         </div>
       </div>
 
       <div className="mt-10 overflow-hidden border-y border-[#111827] bg-[#ff7a3e] py-2 text-[#111827]">
         <div className="whitespace-nowrap text-center text-2xl font-medium">
-          UX Design ✦ App Design ✦ Dashboard ✦ Wireframe ✦ User Research ✦
+          React ✦ TypeScript ✦ Hono ✦ PostgreSQL ✦ Cloudflare Workers ✦ Fullstack Development ✦
         </div>
       </div>
     </section>

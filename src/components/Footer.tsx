@@ -1,9 +1,16 @@
+const socials = [
+  { label: "Instagram", handle: "@aristoavilla", href: "https://instagram.com/aristoavilla" },
+  { label: "GitHub", handle: "@aristoavilla", href: "https://github.com/aristoavilla" },
+  { label: "LinkedIn", handle: "@aristoavilla", href: "https://linkedin.com/in/aristoavilla" },
+  { label: "Facebook", handle: "Aristo Availa", href: "https://facebook.com/aristo.availa" },
+];
+
 export default function Footer() {
   return (
     <footer className="rounded-t-[2rem] bg-[#1b1c20] px-4 py-12 text-gray-300 md:px-8">
       <div className="content-wrap">
         <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-          <h2 className="[font-family:var(--font-sora)] text-4xl font-semibold text-white md:text-5xl">Lets Connect there</h2>
+          <h2 className="[font-family:var(--font-sora)] text-4xl font-semibold text-white md:text-5xl">Lets Connect</h2>
           <button className="btn-primary px-6 py-2 text-sm">Hire me ↗</button>
         </div>
 
@@ -11,28 +18,41 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold text-white">ARISTO</h3>
             <p className="text-sm leading-relaxed text-gray-400">
-              Product designer focused on UX strategy, product thinking, and visual storytelling for digital brands.
+              Fullstack web developer building fast, modern web applications with React, TypeScript, and Cloudflare-powered backends.
             </p>
-            <p className="mt-4 text-sm text-gray-500">socials: facebook, dribbble, x, linkedin</p>
+            <div className="mt-4 flex flex-col gap-1">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-400 hover:text-[#ff7a3e]"
+                >
+                  {s.label} · {s.handle}
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
             <h4 className="mb-4 font-semibold text-white">Navigation</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><a href="#about" className="hover:text-[#ff7a3e]">Home</a></li>
-              <li><a href="#about" className="hover:text-[#ff7a3e]">About us</a></li>
+              <li><a href="#about" className="hover:text-[#ff7a3e]">About</a></li>
               <li><a href="#service" className="hover:text-[#ff7a3e]">Services</a></li>
               <li><a href="#resume" className="hover:text-[#ff7a3e]">Resume</a></li>
-              <li><a href="#contact" className="hover:text-[#ff7a3e]">Project</a></li>
+              <li><a href="#project" className="hover:text-[#ff7a3e]">Projects</a></li>
+              <li><a href="#skills" className="hover:text-[#ff7a3e]">Skills</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-4 font-semibold text-white">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="mailto:aristo.avilla@email.com" className="hover:text-[#ff7a3e]">aristo.avilla@email.com</a></li>
-              <li><a href="tel:+919876543210" className="hover:text-[#ff7a3e]">+91 9876543210</a></li>
-              <li><a href="#project" className="hover:text-[#ff7a3e]">Portfolio, Work</a></li>
+              <li><a href="mailto:aristoavilla@gmail.com" className="hover:text-[#ff7a3e]">aristoavilla@gmail.com</a></li>
+              <li><a href="tel:+6281234567890" className="hover:text-[#ff7a3e]">+62 812-3456-7890</a></li>
+              <li><span>Indonesia</span></li>
             </ul>
           </div>
 

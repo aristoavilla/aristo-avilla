@@ -4,8 +4,7 @@ import Services from "@/components/Services";
 import WorkExperience from "@/components/WorkExperience";
 import WhyHireMe from "@/components/WhyHireMe";
 import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import BlogPosts from "@/components/BlogPosts";
+import TechStack from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,8 +17,7 @@ function App() {
       <WorkExperience />
       <WhyHireMe />
       <Portfolio />
-      <Testimonials />
-      <BlogPosts />
+      <TechStack />
       <Contact />
       <Footer />
     </main>

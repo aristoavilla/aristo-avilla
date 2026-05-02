@@ -10,7 +10,7 @@ export default function WhyHireMe() {
                 <div className="relative z-10 flex h-64 w-52 items-center justify-center rounded-[2rem] bg-gradient-to-b from-[#ff925c] to-[#ff7a3e] text-center text-white shadow-xl">
                   <div>
                     <p className="text-5xl font-semibold">AA</p>
-                    <p className="text-sm">Product Designer</p>
+                    <p className="text-sm">Fullstack Developer</p>
                   </div>
                 </div>
               </div>
@@ -21,17 +21,17 @@ export default function WhyHireMe() {
                 Why <span className="text-[#ff7a3e]">Hire me?</span>
               </h2>
               <p className="mt-4 max-w-lg text-sm text-[#6b7280]">
-                I create product experiences that connect user needs with measurable business outcomes.
+                I build fullstack applications that are fast, maintainable, and solve real problems — from a clean UI down to the database and deployment.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div>
-                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">450+</p>
-                  <p className="text-xs text-[#6b7280]">Projects Completed</p>
+                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">850</p>
+                  <p className="text-xs text-[#6b7280]">TOEIC · Advanced English</p>
                 </div>
                 <div>
-                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">120+</p>
-                  <p className="text-xs text-[#6b7280]">Happy Partners</p>
+                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">90.0</p>
+                  <p className="text-xs text-[#6b7280]">Top Graduate · Class of 2025</p>
                 </div>
               </div>
 
