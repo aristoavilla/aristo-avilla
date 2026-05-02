@@ -15,6 +15,14 @@ export default function WorkExperience() {
       description: "Graduated as one of the highest score achievers in the class of 2025 with a focus on software engineering.",
       achievements: ["Overall Score 90", "TOEIC 850 · Advanced English"],
     },
+    {
+      id: 3,
+      company: "City-Level Competitions",
+      position: "Competitions & Awards",
+      years: "2024 – 2025",
+      description: "Represented the school in city-level technology competitions across software and cybersecurity disciplines.",
+      achievements: ["2nd Place · Business App Development", "3rd Place · Cybersecurity"],
+    },
   ];
 
   return (

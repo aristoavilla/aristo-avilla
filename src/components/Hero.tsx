@@ -31,9 +31,12 @@ export default function Hero() {
             </div>
 
             <div className="text-center md:text-right">
-              <p className="text-[#ff7a3e]">★★★★★</p>
-              <p className="[font-family:var(--font-sora)] text-4xl font-semibold text-[#1f2937]">TOEIC 850</p>
-              <p className="text-xs text-[#5f6672]">Advanced English</p>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                Available for work
+              </span>
+              <p className="mt-3 text-sm font-medium text-[#1f2937]">Remote · Indonesia</p>
+              <p className="mt-1 text-xs text-[#5f6672]">Open to opportunities</p>
             </div>
           </div>
 
