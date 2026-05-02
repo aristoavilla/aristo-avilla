@@ -26,12 +26,12 @@ export default function WhyHireMe() {
 
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div>
-                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">850</p>
-                  <p className="text-xs text-[#6b7280]">TOEIC · Advanced English</p>
+                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">4+</p>
+                  <p className="text-xs text-[#6b7280]">Projects Built & Shipped</p>
                 </div>
                 <div>
-                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">90.0</p>
-                  <p className="text-xs text-[#6b7280]">Top Graduate · Class of 2025</p>
+                  <p className="[font-family:var(--font-sora)] text-3xl font-semibold">Remote</p>
+                  <p className="text-xs text-[#6b7280]">Available Worldwide</p>
                 </div>
               </div>
 

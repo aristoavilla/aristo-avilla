@@ -10,9 +10,10 @@ export default function WorkExperience() {
     {
       id: 2,
       company: "Vocational High School",
-      position: "Top Graduate · Overall Score 90",
+      position: "Top Graduate · Class of 2025",
       years: "Graduated 2025",
       description: "Graduated as one of the highest score achievers in the class of 2025 with a focus on software engineering.",
+      achievements: ["Overall Score 90", "TOEIC 850 · Advanced English"],
     },
   ];
 
@@ -39,6 +40,15 @@ export default function WorkExperience() {
               <div>
                 <h4 className="text-3xl font-semibold text-[#1f2937]">{exp.position}</h4>
                 <p className="mt-2 text-sm text-[#6b7280]">{exp.description}</p>
+                {"achievements" in exp && exp.achievements && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {exp.achievements.map((a) => (
+                      <span key={a} className="rounded-full border border-[#ff7a3e]/30 bg-[#fff4ef] px-3 py-1 text-xs font-medium text-[#ff7a3e]">
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
