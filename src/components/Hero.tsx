@@ -1,68 +1,62 @@
+import { motion } from "framer-motion";
+import useTypeEffect from "@/hooks/useTypeEffect";
+
 export default function Hero() {
+  const { typedText, showCursor } = useTypeEffect("I'm Aristo, Fullstack Developer");
+  const prefix = "I'm ";
+  const name = "Aristo,";
+  const prefixText = typedText.slice(0, Math.min(prefix.length, typedText.length));
+  const nameText = typedText.slice(prefix.length, prefix.length + name.length);
+  const roleText = typedText.slice(prefix.length + name.length);
+
   return (
-    <section id="about" className="pb-16 pt-4 md:pb-24">
+    <motion.section
+      id="about"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.12 }}
+      className="relative overflow-visible pb-16 pt-4 md:pb-24"
+    >
       <div className="content-wrap">
-        <div className="relative mx-auto max-w-5xl">
+        <div className="relative mx-auto max-w-5xl overflow-visible pb-24 md:pb-32">
           <div className="mb-5 flex justify-center">
             <span className="rounded-full border border-black/20 bg-white px-4 py-1 text-xs">Hello!</span>
           </div>
 
           <h1 className="text-center [font-family:var(--font-sora)] text-4xl font-bold leading-tight md:text-7xl">
-            I&apos;m <span className="text-[#ff7a3e]">Aristo,</span>
+            <span>{prefixText}</span>
+            <span className="text-[#ff7a3e]">{nameText}</span>
             <br />
-            Fullstack Developer
+            <span>{roleText}</span>
+            <span className={`ml-1 inline-block h-[1em] w-[0.15em] translate-y-[0.08em] bg-[#ff7a3e] ${showCursor ? "opacity-100" : "opacity-0"}`} />
           </h1>
 
-          <div className="relative mt-10 grid items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
-            <div className="flex flex-col items-center gap-4 md:items-start">
-              <p className="mx-auto max-w-[220px] text-sm text-[#5f6672] md:mx-0">
-                Building fast, modern web applications from frontend to backend with clean, scalable code.
-              </p>
-              <div className="relative h-36 w-28 overflow-hidden rounded-2xl shadow-lg md:h-44 md:w-36">
-                <img
-                  src="https://i.ibb.co.com/fzG661gf/1.png"
-                  alt="Aristo Avilla"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            </div>
-
-            <div className="relative mx-auto">
-              <div className="absolute inset-x-0 bottom-0 h-36 rounded-t-[999px] bg-[#f5a565] md:h-44" />
-              <div className="relative z-10 h-72 w-56 overflow-hidden rounded-[2.5rem] shadow-2xl md:h-80 md:w-64">
-                <img
-                  src="https://i.ibb.co.com/wZC9Zh8B/3.png"
-                  alt="Aristo Avilla"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-4 md:items-end">
-              <div className="text-center md:text-right">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-                  Available for work
-                </span>
-                <p className="mt-3 text-sm font-medium text-[#1f2937]">Remote · Indonesia</p>
-                <p className="mt-1 text-xs text-[#5f6672]">Open to opportunities</p>
-              </div>
-              <div className="relative h-36 w-28 overflow-hidden rounded-2xl shadow-lg md:h-44 md:w-36">
-                <img
-                  src="https://i.ibb.co.com/BK3YYBFS/2.png"
-                  alt="Aristo Avilla"
-                  className="h-full w-full object-cover object-top"
-                />
+          <div className="relative mt-10 flex justify-center">
+            <div className="relative z-10 w-full max-w-3xl">
+              <div className="absolute left-1/2 top-[46%] h-56 w-[90%] -translate-x-1/2 rounded-[999px] bg-[#f5a565]/80 blur-2xl md:h-80" />
+              <div className="relative mx-auto h-[420px] w-[320px] overflow-visible md:h-[520px] md:w-[420px]">
+                <div className="absolute inset-x-4 bottom-6 h-20 rounded-[999px] bg-[#f5a565]/80 blur-xl" />
+                <div className="absolute inset-x-0 bottom-0 h-[86%] overflow-hidden rounded-[3rem] shadow-2xl md:h-[90%]">
+                  <img
+                    src="https://i.ibb.co.com/wZC9Zh8B/3.png"
+                    alt="Aristo Avilla"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 flex justify-center gap-3">
-            <button className="btn-primary">Portfolio</button>
-            <button className="btn-secondary">Hire me</button>
+          <div className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 gap-3 md:bottom-0">
+            <a href="#project" className="btn-primary shadow-xl">
+              Portfolio
+            </a>
+            <a href="#contact" className="btn-secondary shadow-xl">
+              Hire me
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function TechStack() {
   const categories = [
     {
@@ -35,7 +37,13 @@ export default function TechStack() {
   ];
 
   return (
-    <section id="skills" className="pb-16 md:pb-24">
+    <motion.section
+      id="skills"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.46 }}
+      className="pb-16 md:pb-24"
+    >
       <div className="content-wrap">
         <div className="grain overflow-hidden rounded-[2rem] bg-[#101217] px-6 py-12 text-white md:px-8">
           <h2 className="text-center [font-family:var(--font-sora)] text-4xl font-semibold md:text-5xl">
@@ -66,6 +74,6 @@ export default function TechStack() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function WorkExperience() {
   const experiences = [
     {
@@ -26,7 +28,13 @@ export default function WorkExperience() {
   ];
 
   return (
-    <section id="resume" className="pb-16 md:pb-24">
+    <motion.section
+      id="resume"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.26 }}
+      className="pb-16 md:pb-24"
+    >
       <div className="content-wrap">
         <h2 className="section-title text-center">
           My <span className="text-[#ff7a3e]">Experience & Education</span>
@@ -62,6 +70,6 @@ export default function WorkExperience() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

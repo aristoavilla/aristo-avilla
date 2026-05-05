@@ -1,39 +1,20 @@
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { projects } from "@/data/projects";
+
 export default function Portfolio() {
-  const projects = [
-    {
-      id: 1,
-      title: "Learning Management System",
-      category: "Full Stack",
-      date: "March 2026",
-      inProgress: false,
-    },
-    {
-      id: 2,
-      title: "To-do App with Better Stack",
-      category: "Frontend",
-      date: "April 2026",
-      inProgress: false,
-    },
-    {
-      id: 3,
-      title: "Telegram Bot with AI Integration",
-      category: "Backend / Bot",
-      date: "2026",
-      inProgress: false,
-    },
-    {
-      id: 4,
-      title: "Community Session Bookings",
-      category: "Full Stack",
-      date: "In Progress",
-      inProgress: true,
-    },
-  ];
+  const navigate = useNavigate();
 
   const tags = ["Full Stack", "Frontend", "Backend", "Bot", "API", "In Progress"];
 
   return (
-    <section id="project" className="pb-16 md:pb-24">
+    <motion.section
+      id="project"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.42 }}
+      className="pb-16 md:pb-24"
+    >
       <div className="content-wrap">
         <div className="mb-10 flex flex-wrap items-center justify-between gap-3">
           <h2 className="section-title max-w-xl">
@@ -44,14 +25,21 @@ export default function Portfolio() {
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {projects.map((project) => (
-            <article key={project.id} className="overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-1">
-              <div className="relative h-52 bg-gradient-to-br from-[#f5f7fb] to-[#dfe7f6] p-4">
-                <div className="grid h-full grid-cols-6 gap-2">
-                  <div className="col-span-4 rounded-lg bg-white/80" />
-                  <div className="col-span-2 rounded-lg bg-[#ced8eb]" />
-                  <div className="col-span-2 rounded-lg bg-[#ced8eb]" />
-                  <div className="col-span-4 rounded-lg bg-white/85" />
-                </div>
+            <article
+              key={project.id}
+              role="button"
+              tabIndex={0}
+              onClick={() => navigate(`/project/${project.slug}`)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  navigate(`/project/${project.slug}`);
+                }
+              }}
+              className="cursor-pointer overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-1"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden bg-[#f5f7fb]">
+                <img src={project.image} alt={project.title} className="h-full w-full object-cover transition duration-500 hover:scale-105" />
                 {project.inProgress && (
                   <span className="absolute left-3 top-3 rounded-full bg-[#ff7a3e] px-2.5 py-1 text-[10px] font-semibold text-white">
                     In Progress
@@ -79,15 +67,15 @@ export default function Portfolio() {
         </div>
 
         <div className="mt-5 text-center">
-          <h3 className="[font-family:var(--font-sora)] text-3xl font-semibold text-[#1f2937]">Community Session Bookings</h3>
+          <h3 className="[font-family:var(--font-sora)] text-3xl font-semibold text-[#1f2937]">Komuna Community Website</h3>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-[#6b7280]">
-            A fullstack bookings platform currently in development — built with React, Hono, and PostgreSQL.
+            A fullstack community platform currently in development — built with React, TypeScript, and a growing design system.
           </p>
-          <button className="mt-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#ff7a3e] text-white">
+          <button onClick={() => navigate("/project/komuna-community-website")} className="mt-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#ff7a3e] text-white">
             ↗
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

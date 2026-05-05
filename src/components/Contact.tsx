@@ -1,6 +1,14 @@
+import { motion } from "framer-motion";
+
 export default function Contact() {
   return (
-    <section id="contact" className="pb-10 md:pb-14">
+    <motion.section
+      id="contact"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.54 }}
+      className="pb-10 md:pb-14"
+    >
       <div className="content-wrap">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="[font-family:var(--font-sora)] text-4xl font-semibold text-[#1f2937] md:text-5xl">
@@ -33,6 +41,6 @@ export default function Contact() {
           React ✦ TypeScript ✦ Hono ✦ PostgreSQL ✦ Cloudflare Workers ✦ Fullstack Development ✦
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function Header() {
@@ -5,7 +6,12 @@ export default function Header() {
   const navItems = ["About", "Service", "Resume", "Project", "Contact"];
 
   return (
-    <header className="sticky top-4 z-50 py-4">
+    <motion.header
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      className="sticky top-4 z-50 py-4"
+    >
       <nav className="content-wrap">
         <div className="mx-auto flex max-w-5xl items-center justify-between rounded-full bg-[#1f2024] px-3 py-2 text-white shadow-2xl">
           <a href="#" className="rounded-full bg-[#ff7a3e] px-4 py-2 text-xs font-semibold tracking-wide text-white">
@@ -54,6 +60,6 @@ export default function Header() {
           </div>
         )}
       </nav>
-    </header>
+    </motion.header>
   );
 }

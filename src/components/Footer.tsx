@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const socials = [
   { label: "Instagram", handle: "@aristoavilla", href: "https://instagram.com/aristoavilla" },
   { label: "GitHub", handle: "@aristoavilla", href: "https://github.com/aristoavilla" },
@@ -7,7 +9,12 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="rounded-t-[2rem] bg-[#1b1c20] px-4 py-12 text-gray-300 md:px-8">
+    <motion.footer
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.62 }}
+      className="rounded-t-[2rem] bg-[#1b1c20] px-4 py-12 text-gray-300 md:px-8"
+    >
       <div className="content-wrap">
         <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
           <h2 className="[font-family:var(--font-sora)] text-4xl font-semibold text-white md:text-5xl">Lets Connect</h2>
@@ -78,6 +85,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
