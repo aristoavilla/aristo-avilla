@@ -1,7 +1,27 @@
 # Portfolio Website Revision - Implementation Plan for Sub-Agent
 
 ## 🎯 Overview
-This plan guides implementation of 6 major revisions to the Aristo Avilla portfolio website. Work should be completed via CLI/terminal commands using npm scripts and Vite dev server.
+This plan guides implementation of the current portfolio revisions. Work should be completed via CLI/terminal commands using npm scripts and Vite dev server.
+
+**New revision (May 2026) included in this plan:**
+- Hero image should sit behind the `Portfolio` / `Hire me` buttons (buttons overlay image)
+- Hero “frame/border” around the picture should be invisible
+- Services cards should include tidy brand logos (React, TypeScript, Cloudflare, optional Hono)
+- Footer social usernames should be replaced with linked logo icons (Brandfetch)
+- Footer WhatsApp number should be `+62-877-1655-2425`
+
+---
+
+## SUB-AGENT DRIVEN WORKFLOW (RECOMMENDED)
+
+Use the Explore sub-agent to quickly locate exact components and patterns before editing.
+
+**Suggested Explore prompts:**
+- "Find the Hero section buttons and hero image markup. Where are z-index and positioning set?" (quick)
+- "Find Services cards and how the service items are rendered; identify where to inject brand logos." (quick)
+- "Find Footer socials/phone number and update to logo icons + WhatsApp." (quick)
+
+Then implement changes locally and validate using the CLI commands in the final phase.
 
 ---
 
@@ -38,6 +58,8 @@ npm run dev
 5. Make picture overflow/extend beyond current boundaries
 6. Reposition "Portfolio" and "Hire me" buttons to overlap the picture
 7. Buttons should be positioned absolutely near bottom of hero section
+8. Ensure buttons are visually above the picture (z-index)
+9. Remove any visible frame/border around the picture (no border/ring; avoid strong shadow that reads like a frame)
 8. Keep "Hello!" badge above
 9. Keep main heading "I'm Aristo, Fullstack Developer"
 10. Add typing animation to heading (see Task 4.1)
@@ -49,6 +71,55 @@ npm run dev
 - Z-index layering: image below buttons
 
 **Implementation Note:** Picture should extend visually into the Portfolio section for design impact.
+
+---
+
+## PHASE 2B: SERVICES CARD LOGOS (MAY 2026)
+
+### Task 2B.1: Add Brand Logos in Services Cards
+**File:** `src/components/Services.tsx`
+
+**Goal:** In "My Services" cards, show tidy brand logos:
+- Frontend: React + TypeScript
+- Backend: Cloudflare + (optional) Hono
+- Full Stack: all logos used above
+
+**Logo sources (provided):**
+- React: `https://cdn.brandfetch.io/idREYlLkpD/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746616583363`
+- TypeScript: `https://cdn.brandfetch.io/idKX_Hb7va/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1772354699784`
+- Cloudflare: `https://cdn.brandfetch.io/idJ3Cg8ymG/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667589504295`
+
+**Hono logo (optional):**
+- Use Brandfetch Logo API domain format if needed: `https://cdn.brandfetch.io/hono.dev?c=1bxid64Mup7aczewSAYMX`
+- If it doesn’t render correctly, omit Hono (per requirements)
+
+**UI guidance:**
+- Keep logos aligned and sized consistently (e.g. small icon chips/pills)
+- Ensure contrast if using "dark" logo variants (place on a dark chip background)
+
+---
+
+## PHASE 2C: FOOTER SOCIAL ICONS + WHATSAPP (MAY 2026)
+
+### Task 2C.1: Replace Social Handles with Icon Links
+**File:** `src/components/Footer.tsx`
+
+**Goal:** Replace social media username text with logo icons wrapped by links.
+
+**Implementation notes:**
+- Use Brandfetch Logo API domain format: `https://cdn.brandfetch.io/<domain>?c=<clientId>`
+- Wrap each icon with `<a href=... target="_blank" rel="noopener noreferrer">`
+- Add `aria-label` for accessibility
+
+### Task 2C.2: Update WhatsApp Number
+**Files:**
+- `src/components/Footer.tsx`
+- `src/components/Contact.tsx` (if the number is displayed there)
+
+**Goal:** Change displayed number to `+62-877-1655-2425` and make it a WhatsApp link.
+
+**Suggested link format:**
+- `https://wa.me/6287716552425`
 
 ---
 

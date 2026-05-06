@@ -29,7 +29,14 @@ export default function Contact() {
           </form>
 
           <div className="mt-4 flex flex-wrap justify-center gap-6 text-xs text-[#4b5563]">
-            <span>+62 812-3456-7890</span>
+            <a
+              href="https://wa.me/6287716552425"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#ff7a3e]"
+            >
+              +62-877-1655-2425
+            </a>
             <span>aristoavilla@gmail.com</span>
             <span>Indonesia</span>
           </div>

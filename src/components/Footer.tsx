@@ -1,10 +1,28 @@
 import { motion } from "framer-motion";
 
+const brandfetchClientId = "1bxid64Mup7aczewSAYMX";
+
 const socials = [
-  { label: "Instagram", handle: "@aristoavilla", href: "https://instagram.com/aristoavilla" },
-  { label: "GitHub", handle: "@aristoavilla", href: "https://github.com/aristoavilla" },
-  { label: "LinkedIn", handle: "@aristoavilla", href: "https://linkedin.com/in/aristoavilla" },
-  { label: "Facebook", handle: "Aristo Availa", href: "https://facebook.com/aristo.availa" },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/aristoavilla",
+    logoSrc: `https://cdn.brandfetch.io/instagram.com?c=${brandfetchClientId}`,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/aristoavilla",
+    logoSrc: `https://cdn.brandfetch.io/github.com?c=${brandfetchClientId}`,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/aristoavilla",
+    logoSrc: `https://cdn.brandfetch.io/linkedin.com?c=${brandfetchClientId}`,
+  },
+  {
+    label: "Facebook",
+    href: "https://facebook.com/aristo.availa",
+    logoSrc: `https://cdn.brandfetch.io/facebook.com?c=${brandfetchClientId}`,
+  },
 ];
 
 export default function Footer() {
@@ -27,16 +45,17 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-gray-400">
               Fullstack web developer building fast, modern web applications with React, TypeScript, and Cloudflare-powered backends.
             </p>
-            <div className="mt-4 flex flex-col gap-1">
+            <div className="mt-4 flex flex-wrap gap-2">
               {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-400 hover:text-[#ff7a3e]"
+                  aria-label={s.label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-white/10"
                 >
-                  {s.label} · {s.handle}
+                  <img src={s.logoSrc} alt={s.label} className="h-4 w-auto" loading="lazy" />
                 </a>
               ))}
             </div>
@@ -58,7 +77,16 @@ export default function Footer() {
             <h4 className="mb-4 font-semibold text-white">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><a href="mailto:aristoavilla@gmail.com" className="hover:text-[#ff7a3e]">aristoavilla@gmail.com</a></li>
-              <li><a href="tel:+6281234567890" className="hover:text-[#ff7a3e]">+62 812-3456-7890</a></li>
+              <li>
+                <a
+                  href="https://wa.me/6287716552425"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#ff7a3e]"
+                >
+                  +62-877-1655-2425
+                </a>
+              </li>
               <li><span>Indonesia</span></li>
             </ul>
           </div>

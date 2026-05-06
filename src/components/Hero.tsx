@@ -31,29 +31,30 @@ export default function Hero() {
             <span className={`ml-1 inline-block h-[1em] w-[0.15em] translate-y-[0.08em] bg-[#ff7a3e] ${showCursor ? "opacity-100" : "opacity-0"}`} />
           </h1>
 
-          <div className="relative mt-10 flex justify-center">
+          <div className="relative mt-10 flex justify-center -mb-10 md:-mb-14">
             <div className="relative z-10 w-full max-w-3xl">
               <div className="absolute left-1/2 top-[46%] h-56 w-[90%] -translate-x-1/2 rounded-[999px] bg-[#f5a565]/80 blur-2xl md:h-80" />
+
               <div className="relative mx-auto h-[420px] w-[320px] overflow-visible md:h-[520px] md:w-[420px]">
                 <div className="absolute inset-x-4 bottom-6 h-20 rounded-[999px] bg-[#f5a565]/80 blur-xl" />
-                <div className="absolute inset-x-0 bottom-0 h-[86%] overflow-hidden rounded-[3rem] shadow-2xl md:h-[90%]">
+                <div className="absolute inset-x-0 bottom-0 h-[86%] overflow-hidden rounded-[3rem] shadow-none md:h-[90%]">
                   <img
                     src="https://i.ibb.co.com/wZC9Zh8B/3.png"
                     alt="Aristo Avilla"
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
+
+                <div className="absolute inset-x-0 bottom-10 z-20 flex justify-center gap-3 md:bottom-12">
+                  <a href="#project" className="btn-primary shadow-xl">
+                    Portfolio
+                  </a>
+                  <a href="#contact" className="btn-secondary shadow-xl">
+                    Hire me
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 gap-3 md:bottom-0">
-            <a href="#project" className="btn-primary shadow-xl">
-              Portfolio
-            </a>
-            <a href="#contact" className="btn-secondary shadow-xl">
-              Hire me
-            </a>
           </div>
         </div>
       </div>
