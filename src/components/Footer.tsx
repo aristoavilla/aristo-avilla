@@ -30,7 +30,7 @@ export default function Footer() {
     <motion.footer
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55 }}
       className="rounded-t-[2rem] bg-[#1b1c20] px-4 py-12 text-gray-300 md:px-8"
     >
@@ -56,7 +56,7 @@ export default function Footer() {
                   aria-label={s.label}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-white/10"
                 >
-                  <img src={s.logoSrc} alt={s.label} className="h-4 w-auto" loading="lazy" />
+                  <img src={s.logoSrc} alt={s.label} width="16" height="16" className="h-4 w-auto" loading="lazy" />
                 </a>
               ))}
             </div>
