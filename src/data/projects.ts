@@ -42,7 +42,7 @@ export const projects: Project[] = [
       "A focused to-do application with a clean interface, practical task flows, and visual monitoring-friendly design cues for a lightweight productivity workflow.",
     image: "https://i.ibb.co.com/twdv3s8y/image.png",
     gallery: ["https://i.ibb.co.com/WNnLrs6m/image.png", "https://i.ibb.co.com/8gjQxZsj/image.png"],
-    link: "https://vercel.com/aristoavilla-6377s-projects/better-stack-to-do-claude-2-frontend",
+    link: "https://better-stack-to-do-claude-2-fronten.vercel.app/",
     technologies: ["React", "Tailwind CSS", "Better Stack"],
     status: "Live",
     inProgress: false,
