@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="content-wrap">
         <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-white/70 px-5 pb-0 pt-6 shadow-[0_24px_70px_rgba(24,33,56,0.12)] backdrop-blur md:min-h-[690px] md:rounded-[2.5rem] md:px-12 md:pt-10">
           <div className="absolute inset-x-[20%] top-8 h-40 rounded-[999px] bg-[#ff7a3e]/10 blur-3xl" />
-          <div className="grid items-center gap-4 md:grid-cols-[0.98fr_1.02fr] md:gap-6">
+          <div className="items-center gap-4 md:grid md:grid-cols-[0.98fr_1.02fr] md:gap-6">
             <div className="relative z-20 pt-1 text-center md:pt-0 md:text-left">
               <div className="mb-3 flex justify-center md:justify-start">
                 <span className="rounded-full border border-black/20 bg-white px-4 py-1 text-xs">Hello!</span>

@@ -17,7 +17,7 @@ function HomePage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.35 }}
-      className="min-h-screen overflow-x-clip"
+      className="min-h-screen overflow-x-clip px"
     >
       <Header />
 
@@ -41,7 +41,9 @@ function HomePage() {
         <Portfolio />
       </div>
 
-      <Testimonials />
+      <div id="skills">
+        <Testimonials />
+      </div>
 
       <div id="contact">
         <Contact />
