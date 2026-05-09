@@ -39,7 +39,7 @@ body {
 body::before,
 body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   pointer-events: none;
   z-index: -1;
 }

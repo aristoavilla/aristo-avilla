@@ -1,0 +1,307 @@
+- main [ref=e3]:
+  - navigation [ref=e5]:
+    - generic [ref=e6]:
+      - link "Home" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e8]:
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: "#about"
+        - link "Service" [ref=e10] [cursor=pointer]:
+          - /url: "#service"
+        - link "Resume" [ref=e11] [cursor=pointer]:
+          - /url: "#resume"
+        - link "Project" [ref=e12] [cursor=pointer]:
+          - /url: "#project"
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e14]:
+        - generic [ref=e15]: AA
+        - generic [ref=e16]: ARISTO
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e25]: Hello!
+      - heading "I'm" [level=1] [ref=e26]: I'm
+      - paragraph [ref=e28]: I turn thoughtful interfaces into fast, reliable fullstack products with clean code and a sharp eye for detail.
+      - generic [ref=e29]:
+        - link "Portfolio" [ref=e30] [cursor=pointer]:
+          - /url: "#project"
+        - link "Hire me" [ref=e31] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: 4+
+          - paragraph [ref=e35]: Projects shipped
+        - generic [ref=e36]:
+          - paragraph [ref=e37]: Remote
+          - paragraph [ref=e38]: Available worldwide
+    - img "Aristo Avilla" [ref=e44]
+  - generic [ref=e48]:
+    - generic [ref=e49]:
+      - heading "My Services" [level=2] [ref=e50]
+      - paragraph [ref=e51]: Building reliable web applications with modern frameworks, clean APIs, and scalable infrastructure.
+    - generic [ref=e52]:
+      - generic [ref=e54]:
+        - heading "Frontend Development" [level=3] [ref=e55]
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic "React" [ref=e58]:
+              - img "React"
+            - generic "TypeScript" [ref=e59]:
+              - img "TypeScript"
+          - generic [ref=e64]: React + TypeScript
+          - button "↗" [ref=e65] [cursor=pointer]
+      - generic [ref=e67]:
+        - heading "Backend Development" [level=3] [ref=e68]
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic "Cloudflare" [ref=e71]:
+              - img "Cloudflare"
+            - generic "Hono" [ref=e72]:
+              - img "Hono"
+          - generic [ref=e77]: Hono + Cloudflare
+          - button "↗" [ref=e78] [cursor=pointer]
+      - generic [ref=e80]:
+        - heading "Full Stack Apps" [level=3] [ref=e81]
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic "React" [ref=e84]:
+              - img "React"
+            - generic "TypeScript" [ref=e85]:
+              - img "TypeScript"
+            - generic "Cloudflare" [ref=e86]:
+              - img "Cloudflare"
+            - generic "Hono" [ref=e87]:
+              - img "Hono"
+          - generic [ref=e92]: End-to-End
+          - button "↗" [ref=e93] [cursor=pointer]
+  - generic [ref=e100]:
+    - heading "My Experience & Education" [level=2] [ref=e101]
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - heading "Remote" [level=3] [ref=e105]
+          - paragraph [ref=e106]: 2026 - Present
+        - generic [ref=e110]:
+          - heading "Junior Web Developer Assistant" [level=4] [ref=e111]
+          - paragraph [ref=e112]: Working remotely to assist in building and maintaining web applications using modern fullstack technologies.
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - heading "Vocational High School" [level=3] [ref=e115]
+          - paragraph [ref=e116]: Graduated 2025
+        - generic [ref=e120]:
+          - heading "Top Graduate · Class of 2025" [level=4] [ref=e121]
+          - paragraph [ref=e122]: Graduated as one of the highest score achievers in the class of 2025 with a focus on software engineering.
+          - generic [ref=e123]:
+            - generic [ref=e124]: Overall Score 90
+            - generic [ref=e125]: TOEIC 850 · Advanced English
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - heading "City-Level Competitions" [level=3] [ref=e128]
+          - paragraph [ref=e129]: 2024 – 2025
+        - generic [ref=e133]:
+          - heading "Competitions & Awards" [level=4] [ref=e134]
+          - paragraph [ref=e135]: Represented the school in city-level technology competitions across software and cybersecurity disciplines.
+          - generic [ref=e136]:
+            - generic [ref=e137]: 2nd Place · Business App Development
+            - generic [ref=e138]: 3rd Place · Cybersecurity
+  - generic [ref=e143]:
+    - generic [ref=e144]:
+      - heading "Why Hire me?" [level=2] [ref=e145]
+      - paragraph [ref=e146]: I build fullstack applications that are fast, maintainable, and solve real problems — from a clean UI down to the database and deployment.
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - paragraph [ref=e149]: 4+
+          - paragraph [ref=e150]: Projects Built & Shipped
+        - generic [ref=e151]:
+          - paragraph [ref=e152]: Remote
+          - paragraph [ref=e153]: Available Worldwide
+      - button "Hire me" [ref=e154] [cursor=pointer]
+    - img "Aristo Avilla" [ref=e159]
+  - generic [ref=e162]:
+    - generic [ref=e163]:
+      - heading "Let's have a look at my Portfolio" [level=2] [ref=e164]
+      - button "See all" [ref=e165] [cursor=pointer]
+    - generic [ref=e166]:
+      - button "Learning Management System ↗ Full Stack Learning Management System March 2026" [ref=e168] [cursor=pointer]:
+        - generic [ref=e169]:
+          - img "Learning Management System" [ref=e170]
+          - button "↗" [ref=e171]
+        - generic [ref=e172]:
+          - paragraph [ref=e173]: Full Stack
+          - heading "Learning Management System" [level=3] [ref=e174]
+          - paragraph [ref=e175]: March 2026
+      - button "To-do with Better Stack Tools ↗ Frontend To-do with Better Stack Tools April 2026" [ref=e177] [cursor=pointer]:
+        - generic [ref=e178]:
+          - img "To-do with Better Stack Tools" [ref=e179]
+          - button "↗" [ref=e180]
+        - generic [ref=e181]:
+          - paragraph [ref=e182]: Frontend
+          - heading "To-do with Better Stack Tools" [level=3] [ref=e183]
+          - paragraph [ref=e184]: April 2026
+      - button "Telegram Bot with AI Integration ↗ Backend / Bot Telegram Bot with AI Integration 2026" [ref=e186] [cursor=pointer]:
+        - generic [ref=e187]:
+          - img "Telegram Bot with AI Integration" [ref=e188]
+          - button "↗" [ref=e189]
+        - generic [ref=e190]:
+          - paragraph [ref=e191]: Backend / Bot
+          - heading "Telegram Bot with AI Integration" [level=3] [ref=e192]
+          - paragraph [ref=e193]: "2026"
+      - button "Komuna Community Website In Progress ↗ Full Stack Komuna Community Website In Progress" [ref=e195] [cursor=pointer]:
+        - generic [ref=e196]:
+          - img "Komuna Community Website" [ref=e197]
+          - generic [ref=e198]: In Progress
+          - button "↗" [ref=e199]
+        - generic [ref=e200]:
+          - paragraph [ref=e201]: Full Stack
+          - heading "Komuna Community Website" [level=3] [ref=e202]
+          - paragraph [ref=e203]: In Progress
+    - generic [ref=e204]:
+      - generic [ref=e205]: Full Stack
+      - generic [ref=e206]: Frontend
+      - generic [ref=e207]: Backend
+      - generic [ref=e208]: Bot
+      - generic [ref=e209]: API
+      - generic [ref=e210]: In Progress
+    - generic [ref=e211]:
+      - heading "Komuna Community Website" [level=3] [ref=e212]
+      - paragraph [ref=e213]: A fullstack community platform currently in development — built with React, TypeScript, and a growing design system.
+      - button "↗" [ref=e214] [cursor=pointer]
+  - generic [ref=e218]:
+    - heading "Tech Stack & Skills" [level=2] [ref=e219]:
+      - text: Tech Stack &
+      - text: Skills
+    - paragraph [ref=e220]: Tools and technologies I use to build fast, reliable, and scalable applications.
+    - generic [ref=e221]:
+      - generic [ref=e223]:
+        - heading "Frontend" [level=3] [ref=e224]
+        - generic [ref=e225]:
+          - generic [ref=e226]: React
+          - generic [ref=e227]: Vite
+          - generic [ref=e228]: TypeScript
+          - generic [ref=e229]: Tailwind CSS
+          - generic [ref=e230]: Shadcn
+          - generic [ref=e231]: MaterialUI
+          - generic [ref=e232]: Formik
+      - generic [ref=e234]:
+        - heading "Backend" [level=3] [ref=e235]
+        - generic [ref=e236]:
+          - generic [ref=e237]: Hono
+          - generic [ref=e238]: Drizzle ORM
+          - generic [ref=e239]: Cloudflare Workers + Queue
+          - generic [ref=e240]: Convex
+      - generic [ref=e242]:
+        - heading "Database & Storage" [level=3] [ref=e243]
+        - generic [ref=e244]:
+          - generic [ref=e245]: PostgreSQL
+          - generic [ref=e246]: NeonDB
+          - generic [ref=e247]: Cloudflare R2
+      - generic [ref=e249]:
+        - heading "APIs" [level=3] [ref=e250]
+        - generic [ref=e251]:
+          - generic [ref=e252]: Axios
+          - generic [ref=e253]: TanStack Query
+          - generic [ref=e254]: Postman
+          - generic [ref=e255]: Resend
+      - generic [ref=e257]:
+        - heading "Monitoring & Events" [level=3] [ref=e258]
+        - generic [ref=e259]:
+          - generic [ref=e260]: Better Stack
+          - generic [ref=e261]: PostHog
+      - generic [ref=e263]:
+        - heading "AI Tools" [level=3] [ref=e264]
+        - generic [ref=e265]:
+          - generic [ref=e266]: Claude Code
+          - generic [ref=e267]: GitHub Copilot
+          - generic [ref=e268]: ChatGPT
+          - generic [ref=e269]: Codex
+      - generic [ref=e271]:
+        - heading "Languages" [level=3] [ref=e272]
+        - generic [ref=e273]:
+          - generic [ref=e274]: JavaScript
+          - generic [ref=e275]: TypeScript
+          - generic [ref=e276]: SQL
+      - generic [ref=e278]:
+        - heading "Deployment" [level=3] [ref=e279]
+        - generic [ref=e280]:
+          - generic [ref=e281]: Vercel
+          - generic [ref=e282]: Cloudflare Worker
+  - generic [ref=e284]:
+    - generic [ref=e286]:
+      - heading "Have an Awesome Project Idea? Let's Discuss" [level=2] [ref=e287]:
+        - text: Have an Awesome Project
+        - text: Idea? Let's Discuss
+      - generic [ref=e288]:
+        - textbox "Enter Email Address" [ref=e289]
+        - button "Send" [ref=e290] [cursor=pointer]
+      - generic [ref=e291]:
+        - link "+62-877-1655-2425" [ref=e292] [cursor=pointer]:
+          - /url: https://wa.me/6287716552425
+        - generic [ref=e293]: aristoavilla@gmail.com
+        - generic [ref=e294]: Indonesia
+    - generic [ref=e296]: React ✦ TypeScript ✦ Hono ✦ PostgreSQL ✦ Cloudflare Workers ✦ Fullstack Development ✦
+  - generic [ref=e298]:
+    - generic [ref=e299]:
+      - heading "Lets Connect" [level=2] [ref=e300]
+      - button "Hire me ↗" [ref=e301] [cursor=pointer]
+    - generic [ref=e302]:
+      - generic [ref=e303]:
+        - heading "ARISTO" [level=3] [ref=e304]
+        - paragraph [ref=e305]: Fullstack web developer building fast, modern web applications with React, TypeScript, and Cloudflare-powered backends.
+        - generic [ref=e306]:
+          - link "Instagram" [ref=e307] [cursor=pointer]:
+            - /url: https://instagram.com/aristoavilla
+            - img "Instagram" [ref=e308]
+          - link "GitHub" [ref=e309] [cursor=pointer]:
+            - /url: https://github.com/aristoavilla
+            - img "GitHub" [ref=e310]
+          - link "LinkedIn" [ref=e311] [cursor=pointer]:
+            - /url: https://linkedin.com/in/aristoavilla
+            - img "LinkedIn" [ref=e312]
+          - link "Facebook" [ref=e313] [cursor=pointer]:
+            - /url: https://facebook.com/aristo.availa
+            - img "Facebook" [ref=e314]
+      - generic [ref=e315]:
+        - heading "Navigation" [level=4] [ref=e316]
+        - list [ref=e317]:
+          - listitem [ref=e318]:
+            - link "Home" [ref=e319] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e320]:
+            - link "About" [ref=e321] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e322]:
+            - link "Services" [ref=e323] [cursor=pointer]:
+              - /url: "#service"
+          - listitem [ref=e324]:
+            - link "Resume" [ref=e325] [cursor=pointer]:
+              - /url: "#resume"
+          - listitem [ref=e326]:
+            - link "Projects" [ref=e327] [cursor=pointer]:
+              - /url: "#project"
+          - listitem [ref=e328]:
+            - link "Skills" [ref=e329] [cursor=pointer]:
+              - /url: "#skills"
+      - generic [ref=e330]:
+        - heading "Contact" [level=4] [ref=e331]
+        - list [ref=e332]:
+          - listitem [ref=e333]:
+            - link "aristoavilla@gmail.com" [ref=e334] [cursor=pointer]:
+              - /url: mailto:aristoavilla@gmail.com
+          - listitem [ref=e335]:
+            - link "+62-877-1655-2425" [ref=e336] [cursor=pointer]:
+              - /url: https://wa.me/6287716552425
+          - listitem [ref=e337]: Indonesia
+      - generic [ref=e338]:
+        - heading "Get the latest information" [level=4] [ref=e339]
+        - generic [ref=e340]:
+          - textbox "Email Address" [ref=e341]
+          - button "➤" [ref=e342] [cursor=pointer]
+    - generic [ref=e343]:
+      - paragraph [ref=e344]: Copyright 2026 aristo.avilla. All Rights Reserved.
+      - generic [ref=e345]:
+        - link "User Terms" [ref=e346] [cursor=pointer]:
+          - /url: "#"
+        - link "Conditions" [ref=e347] [cursor=pointer]:
+          - /url: "#"
+        - link "Privacy Policy" [ref=e348] [cursor=pointer]:
+          - /url: "#"

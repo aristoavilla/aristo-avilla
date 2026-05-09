@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Header from "@/components/Header";
-import LazySection from "@/components/LazySection";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import WorkExperience from "@/components/WorkExperience";
@@ -22,33 +21,31 @@ function HomePage() {
     >
       <Header />
 
-      <LazySection id="about">
+      <div id="about">
         <Hero />
-      </LazySection>
+      </div>
 
-      <LazySection id="service">
+      <div id="service">
         <Services />
-      </LazySection>
+      </div>
 
-      <LazySection id="resume">
+      <div id="resume">
         <WorkExperience />
-      </LazySection>
+      </div>
 
-      <LazySection id="why-hire-me">
+      <div id="why-hire-me">
         <WhyHireMe />
-      </LazySection>
+      </div>
 
-      <LazySection id="project">
+      <div id="project">
         <Portfolio />
-      </LazySection>
+      </div>
 
-      <LazySection id="skills">
-        <Testimonials />
-      </LazySection>
+      <Testimonials />
 
-      <LazySection id="contact">
+      <div id="contact">
         <Contact />
-      </LazySection>
+      </div>
 
       <Footer />
     </motion.main>
