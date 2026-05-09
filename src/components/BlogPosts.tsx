@@ -1,3 +1,6 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
+
 export default function BlogPosts() {
   const blogPosts = [
     {
@@ -24,7 +27,7 @@ export default function BlogPosts() {
   ];
 
   return (
-    <section className="py-14 md:py-20">
+    <AnimatedSection className="py-14 md:py-20">
       <div className="content-wrap">
         <div className="mb-10 flex flex-wrap items-center justify-between gap-3">
           <h2 className="section-title">
@@ -35,9 +38,10 @@ export default function BlogPosts() {
           <button className="btn-primary px-5 py-2 text-sm">See all</button>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <StaggerContainer className="grid gap-5 md:grid-cols-3">
           {blogPosts.map((post) => (
-            <article key={post.id} className="overflow-hidden rounded-2xl bg-white shadow-lg transition hover:-translate-y-1">
+            <StaggerItem key={post.id}>
+              <article className="overflow-hidden rounded-2xl bg-white shadow-lg transition hover:-translate-y-1">
               <div className="relative h-56 p-4">
                 <div className="h-full rounded-2xl bg-gradient-to-br from-[#d5dcf6] via-[#a4b6e8] to-[#7f97db]" />
                 <button className="absolute bottom-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-[#182138] text-white">
@@ -49,10 +53,11 @@ export default function BlogPosts() {
                 <h3 className="mt-2 text-xl font-semibold text-[#1f2937]">{post.title}</h3>
                 <p className="mt-3 text-xs text-[#6b7280]">{post.date}</p>
               </div>
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

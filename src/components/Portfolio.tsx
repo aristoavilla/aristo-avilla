@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
 import { useNavigate } from "react-router-dom";
 import { projects } from "@/data/projects";
 
@@ -8,11 +9,8 @@ export default function Portfolio() {
   const tags = ["Full Stack", "Frontend", "Backend", "Bot", "API", "In Progress"];
 
   return (
-    <motion.section
+    <AnimatedSection
       id="project"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.42 }}
       className="pb-16 md:pb-24"
     >
       <div className="content-wrap">
@@ -23,10 +21,10 @@ export default function Portfolio() {
           <button className="btn-primary px-5 py-2 text-sm">See all</button>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <StaggerContainer className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {projects.map((project) => (
-            <article
-              key={project.id}
+            <StaggerItem key={project.id}>
+              <article
               role="button"
               tabIndex={0}
               onClick={() => navigate(`/project/${project.slug}`)}
@@ -54,9 +52,10 @@ export default function Portfolio() {
                 <h3 className="mt-1 text-lg font-semibold text-[#1f2937]">{project.title}</h3>
                 <p className="mt-1 text-xs text-[#9ca3af]">{project.date}</p>
               </div>
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           {tags.map((tag) => (
@@ -76,6 +75,6 @@ export default function Portfolio() {
           </button>
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }

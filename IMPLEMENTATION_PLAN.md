@@ -1,426 +1,531 @@
-# Portfolio Website Revision - Implementation Plan for Sub-Agent
+# Scroll Animation & Lazy Loading Implementation Plan
 
-## 🎯 Overview
-This plan guides implementation of the current portfolio revisions. Work should be completed via CLI/terminal commands using npm scripts and Vite dev server.
+## Goal
+Implement viewport-based fade animations and lazy loading for all page sections.
 
-**New revision (May 2026) included in this plan:**
-- Hero image should sit behind the `Portfolio` / `Hire me` buttons (buttons overlay image)
-- Hero “frame/border” around the picture should be invisible
-- Services cards should include tidy brand logos (React, TypeScript, Cloudflare, optional Hono)
-- Footer social usernames should be replaced with linked logo icons (Brandfetch)
-- Footer WhatsApp number should be `+62-877-1655-2425`
-
----
-
-## SUB-AGENT DRIVEN WORKFLOW (RECOMMENDED)
-
-Use the Explore sub-agent to quickly locate exact components and patterns before editing.
-
-**Suggested Explore prompts:**
-- "Find the Hero section buttons and hero image markup. Where are z-index and positioning set?" (quick)
-- "Find Services cards and how the service items are rendered; identify where to inject brand logos." (quick)
-- "Find Footer socials/phone number and update to logo icons + WhatsApp." (quick)
-
-Then implement changes locally and validate using the CLI commands in the final phase.
+**Requirements:**
+1. Each section fades in slowly when entering the viewport.
+2. Each section fades out and becomes invisible again when leaving the viewport.
+3. Implement lazy loading for each section (only load the component when it is near the viewport).
+4. Sections that contain cards must show their cards sequentially from left to right with smooth, reasonably fast animations.
 
 ---
 
-## PHASE 1: SETUP & DEPENDENCIES
+## Tech Stack
+- **React 18** + **Vite**
+- **Tailwind CSS**
+- **Framer Motion** (already installed: `framer-motion`)
 
-### Task 1.1: Install Animation Dependencies
-**CLI Command:**
-```bash
-npm install framer-motion
-```
-
-**Why:** Needed for smooth page load animations and typing effect. Framer-motion is industry standard for React animations.
-
-### Task 1.2: Verify Dev Server Ready
-**CLI Command:**
-```bash
-npm run dev
-```
-
-**Expected Output:** Vite dev server running on http://localhost:3000
+> **Do NOT install any new dependencies.** All work should be done with Framer Motion's existing APIs (`motion`, `useInView`, `AnimatePresence`, etc.).
 
 ---
 
-## PHASE 2: HERO SECTION REFACTOR
+## Step 1 — Create Reusable Animation Components
 
-### Task 2.1: Update Hero.tsx - Center Picture with Overlapping Buttons
-**File:** `src/components/Hero.tsx`
+Create the following two new files. These will be imported by the section components and `App.tsx`.
 
-**Changes Required:**
-1. Change grid layout from 3-column to single column centered
-2. Remove left description div
-3. Remove right "Available for work" status div
-4. Move picture to center and increase size (from 280px height to ~400px)
-5. Make picture overflow/extend beyond current boundaries
-6. Reposition "Portfolio" and "Hire me" buttons to overlap the picture
-7. Buttons should be positioned absolutely near bottom of hero section
-8. Ensure buttons are visually above the picture (z-index)
-9. Remove any visible frame/border around the picture (no border/ring; avoid strong shadow that reads like a frame)
-8. Keep "Hello!" badge above
-9. Keep main heading "I'm Aristo, Fullstack Developer"
-10. Add typing animation to heading (see Task 4.1)
+### 1. `src/components/AnimatedSection.tsx`
 
-**Key CSS Classes:**
-- `position: relative` on hero container
-- `position: absolute` on button container
-- Increase image from `md:h-80 md:w-64` to larger dimensions
-- Z-index layering: image below buttons
+Wraps any section with viewport-based fade-in/fade-out. Replaces the current `motion.section` usage.
 
-**Implementation Note:** Picture should extend visually into the Portfolio section for design impact.
-
----
-
-## PHASE 2B: SERVICES CARD LOGOS (MAY 2026)
-
-### Task 2B.1: Add Brand Logos in Services Cards
-**File:** `src/components/Services.tsx`
-
-**Goal:** In "My Services" cards, show tidy brand logos:
-- Frontend: React + TypeScript
-- Backend: Cloudflare + (optional) Hono
-- Full Stack: all logos used above
-
-**Logo sources (provided):**
-- React: `https://cdn.brandfetch.io/idREYlLkpD/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746616583363`
-- TypeScript: `https://cdn.brandfetch.io/idKX_Hb7va/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1772354699784`
-- Cloudflare: `https://cdn.brandfetch.io/idJ3Cg8ymG/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667589504295`
-
-**Hono logo (optional):**
-- Use Brandfetch Logo API domain format if needed: `https://cdn.brandfetch.io/hono.dev?c=1bxid64Mup7aczewSAYMX`
-- If it doesn’t render correctly, omit Hono (per requirements)
-
-**UI guidance:**
-- Keep logos aligned and sized consistently (e.g. small icon chips/pills)
-- Ensure contrast if using "dark" logo variants (place on a dark chip background)
-
----
-
-## PHASE 2C: FOOTER SOCIAL ICONS + WHATSAPP (MAY 2026)
-
-### Task 2C.1: Replace Social Handles with Icon Links
-**File:** `src/components/Footer.tsx`
-
-**Goal:** Replace social media username text with logo icons wrapped by links.
-
-**Implementation notes:**
-- Use Brandfetch Logo API domain format: `https://cdn.brandfetch.io/<domain>?c=<clientId>`
-- Wrap each icon with `<a href=... target="_blank" rel="noopener noreferrer">`
-- Add `aria-label` for accessibility
-
-### Task 2C.2: Update WhatsApp Number
-**Files:**
-- `src/components/Footer.tsx`
-- `src/components/Contact.tsx` (if the number is displayed there)
-
-**Goal:** Change displayed number to `+62-877-1655-2425` and make it a WhatsApp link.
-
-**Suggested link format:**
-- `https://wa.me/6287716552425`
-
----
-
-## PHASE 3: WHY HIRE ME SECTION REFACTOR
-
-### Task 3.1: Update WhyHireMe.tsx - Large Overlapping Picture
-**File:** `src/components/WhyHireMe.tsx`
-
-**Changes Required:**
-1. Replace current image - KEEP URL SAME but styling changes: `https://i.ibb.co.com/fzG661gf/1.png`
-2. Make picture significantly larger (suggested: 500px+ height)
-3. Allow picture to overflow outside the glass-panel box
-4. Picture should extend beyond right/bottom edges
-5. Position picture to overlap content area
-6. Consider using `overflow: visible` on container
-7. Use negative margins or absolute positioning for overflow effect
-
-**Current Image URL:**
-- `https://i.ibb.co.com/fzG661gf/1.png`
-
-**Implementation Note:** This is the left picture from original Hero section, now repositioned here with bigger size.
-
----
-
-## PHASE 4: ANIMATION IMPLEMENTATION
-
-### Task 4.1: Typing Effect on Hero Heading
-**File:** `src/components/Hero.tsx`
-
-**Implementation:**
-1. Create custom React hook: `useTypeEffect.ts` in `src/hooks/`
-2. Text to animate: "I'm Aristo, Fullstack Developer"
-3. Features:
-   - Characters appear one by one
-   - Blinking text cursor at end
-   - Cursor speed: 500ms blink
-   - Typing speed: 50ms per character
-   - Auto-play on component mount
-4. Replace static h1 text with animated version
-5. Keep color styling (orange "Aristo," part)
-
-**Hook Location:** `src/hooks/useTypeEffect.ts`
-
-### Task 4.2: Stagger Animation - Elements Appear One by One
-**Files:** All section components
-**Implementation:**
-1. Add stagger animation on page load
-2. Each major section fades and slides in
-3. Delay between sections: 150-200ms
-4. Sections affected:
-   - Header
-   - Hero
-   - Services
-   - WorkExperience
-   - WhyHireMe
-   - Portfolio
-   - Testimonials
-   - Contact
-   - Footer
-5. Use framer-motion AnimatePresence + motion.div wrapper
-6. Trigger: once on initial page load
-
-**Pattern to Use:**
 ```tsx
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
+interface AnimatedSectionProps {
+  children: React.ReactNode;
+  id?: string;
+  className?: string;
+}
+
+export default function AnimatedSection({
+  children,
+  id,
+  className,
+}: AnimatedSectionProps) {
+  return (
+    <motion.section
+      id={id}
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.55 }}
+      className={className}
+    >
+      {children}
+    </motion.section>
+  );
+}
+```
+
+**Behavior:**
+- `once: false` → animation reverses when the section leaves the viewport.
+- `amount: 0.2` → triggers when **20%** of the section is visible.
+- `duration: 0.55` → slow, smooth fade.
+- `y: 18` → subtle upward drift on enter.
+
+---
+
+### 2. `src/components/StaggerContainer.tsx`
+
+Provides **left-to-right stagger** for card grids. In a CSS grid, children render in row-major order (left-to-right, top-to-bottom), so `staggerChildren` naturally produces the desired effect.
+
+```tsx
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
+
+export function StaggerContainer({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.15 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function StaggerItem({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.div variants={itemVariants} className={className}>
+      {children}
+    </motion.div>
+  );
+}
+```
+
+**Behavior:**
+- `staggerChildren: 0.1` → cards appear every **100 ms**.
+- `duration: 0.4` per card → fast enough to feel snappy, slow enough to be smooth.
+- `once: false` → cards reverse (fade out) when the container leaves the viewport.
+
+---
+
+## Step 2 — Create the Lazy Loading Wrapper
+
+### `src/components/LazySection.tsx`
+
+This component ensures:
+1. The anchor `id` is **always** present in the DOM (so navigation links like `#service` still work).
+2. The actual section component is **only mounted** when the user scrolls within **400 px** of the section.
+3. Once mounted, the section stays mounted (so Framer Motion can fade it out gracefully when it leaves the viewport).
+
+```tsx
+import { useRef, useState, useEffect } from "react";
+import { useInView } from "framer-motion";
+
+interface LazySectionProps {
+  id: string;
+  children: React.ReactNode;
+  minHeight?: string;
+}
+
+export default function LazySection({
+  id,
+  children,
+  minHeight = "50vh",
+}: LazySectionProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isNear = useInView(ref, { once: false, margin: "400px" });
+  const [hasBeenNear, setHasBeenNear] = useState(false);
+
+  useEffect(() => {
+    if (isNear) {
+      setHasBeenNear(true);
+    }
+  }, [isNear]);
+
+  return (
+    <div ref={ref} id={id} style={{ minHeight: hasBeenNear ? undefined : minHeight }}>
+      {hasBeenNear ? children : null}
+    </div>
+  );
+}
+```
+
+> **Note:** `margin: "400px"` preloads the section **400 pixels before** it actually enters the viewport, giving Vite enough time to fetch the code-split chunk.
+
+---
+
+## Step 3 — Update `App.tsx`
+
+Convert every section import to `React.lazy()` and wrap each section in `<LazySection>`.
+
+**Full updated `src/App.tsx`:**
+
+```tsx
+import { Suspense, lazy } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Header from "@/components/Header";
+import LazySection from "@/components/LazySection";
+import ProjectDetail from "@/pages/ProjectDetail";
+
+const Hero = lazy(() => import("@/components/Hero"));
+const Services = lazy(() => import("@/components/Services"));
+const WorkExperience = lazy(() => import("@/components/WorkExperience"));
+const WhyHireMe = lazy(() => import("@/components/WhyHireMe"));
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const Contact = lazy(() => import("@/components/Contact"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+function SectionFallback() {
+  return <div className="min-h-[50vh]" />;
+}
+
+function HomePage() {
+  return (
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.35 }}
+      className="min-h-screen overflow-x-clip"
+    >
+      <Header />
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="about">
+          <Hero />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="service">
+          <Services />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="resume">
+          <WorkExperience />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="why-hire-me">
+          <WhyHireMe />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="project">
+          <Portfolio />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="skills">
+          <Testimonials />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <LazySection id="contact">
+          <Contact />
+        </LazySection>
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <Footer />
+      </Suspense>
+    </motion.main>
+  );
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/project/:projectSlug" element={<ProjectDetail />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+**Key changes:**
+- All sections (except `Header` and `ProjectDetail`) are now `React.lazy()` imports.
+- Each section is wrapped in `<Suspense fallback={<SectionFallback />}>` so React can show a blank placeholder while the chunk downloads.
+- Each section is wrapped in `<LazySection id="...">` so it only mounts when near the viewport.
+- `Header` is **not** lazy-loaded because it is needed immediately for navigation.
+- `Footer` is lazy-loaded but does **not** need an `id` (no anchor link points to it), so you can skip the `id` prop if you prefer, though keeping it wrapped in `LazySection` is fine.
+
+---
+
+## Step 4 — Update Each Section Component
+
+Replace the existing `motion.section` (or plain `<section>`) in each file with `AnimatedSection`. Where a section contains cards, wrap the grid in `StaggerContainer` and each card in `StaggerItem`.
+
+### 4.1 `src/components/Hero.tsx`
+
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- Remove the `initial`, `animate`, and `transition` props (they are now handled by `AnimatedSection`).
+- **No cards** → no stagger needed.
+
+**Before:**
+```tsx
 <motion.section
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.1, duration: 0.5 }}
+  id="about"
+  initial={{ opacity: 0, y: 18 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.55, delay: 0.12 }}
+  className="..."
 >
-  {/* content */}
-</motion.section>
+```
+
+**After:**
+```tsx
+<AnimatedSection
+  id="about"
+  className="relative overflow-visible pb-8 pt-0 md:pb-12"
+>
+```
+
+> Keep the inner JSX unchanged.
+
+---
+
+### 4.2 `src/components/Services.tsx`
+
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- Wrap the card grid (`<div className="grid gap-5 md:grid-cols-3">`) in `<StaggerContainer>`.
+- Wrap each mapped card (`<div key={service.id} ...>`) in `<StaggerItem>`.
+
+**Grid wrapper change:**
+```tsx
+<StaggerContainer className="grid gap-5 md:grid-cols-3">
+  {services.map((service) => (
+    <StaggerItem key={service.id}>
+      <div className="rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+        {/* ... rest of card JSX ... */}
+      </div>
+    </StaggerItem>
+  ))}
+</StaggerContainer>
+```
+
+> **Do not** change the card's inner markup; only add the wrappers.
+
+---
+
+### 4.3 `src/components/WorkExperience.tsx`
+
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- **No card grid** → no stagger needed. The timeline items should fade as part of the whole section.
+- Keep the inner JSX unchanged.
+
+---
+
+### 4.4 `src/components/WhyHireMe.tsx`
+
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- **No cards** → no stagger needed.
+- Keep the inner JSX unchanged.
+
+---
+
+### 4.5 `src/components/Portfolio.tsx`
+
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- Wrap the project grid (`<div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">`) in `<StaggerContainer>`.
+- Wrap each mapped `<article>` in `<StaggerItem>`.
+
+**Grid wrapper change:**
+```tsx
+<StaggerContainer className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+  {projects.map((project) => (
+    <StaggerItem key={project.id}>
+      <article
+        role="button"
+        tabIndex={0}
+        onClick={() => navigate(`/project/${project.slug}`)}
+        // ... rest of props
+        className="cursor-pointer overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-1"
+      >
+        {/* ... rest of article JSX ... */}
+      </article>
+    </StaggerItem>
+  ))}
+</StaggerContainer>
+```
+
+> The tags list and the "Komuna Community Website" promo block below the grid should **not** be inside `StaggerContainer`. Keep them outside so they fade with the section as a whole.
+
+---
+
+### 4.6 `src/components/Testimonials.tsx`
+
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- Wrap the skills grid (`<div className="mt-10 grid gap-5 md:grid-cols-2">`) in `<StaggerContainer>`.
+- Wrap each mapped category card (`<div key={cat.name} ...>`) in `<StaggerItem>`.
+
+**Grid wrapper change:**
+```tsx
+<StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2">
+  {categories.map((cat) => (
+    <StaggerItem key={cat.name}>
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+        {/* ... rest of card JSX ... */}
+      </div>
+    </StaggerItem>
+  ))}
+</StaggerContainer>
 ```
 
 ---
 
-## PHASE 5: PORTFOLIO GRID UPDATES
+### 4.7 `src/components/Contact.tsx`
 
-### Task 5.1: Update Portfolio.tsx - Add Project Images
-**File:** `src/components/Portfolio.tsx`
-
-**Changes:**
-1. Replace gradient placeholders with actual project images
-2. Add new field to projects array: `image` (URL)
-3. Update projects data:
-
-```
-Projects Array:
-1. Learning Management System
-   - Card & Details Image: https://i.ibb.co.com/F4crGzPZ/image.png
-   - Link: (not provided - use placeholder "#")
-   - Category: Full Stack
-   - Date: March 2026
-   
-2. To-do with Better Stack Tools
-   - Card Image: https://i.ibb.co.com/twdv3s8y/image.png
-   - Details Images: 
-     * https://i.ibb.co.com/WNnLrs6m/image.png
-     * https://i.ibb.co.com/8gjQxZsj/image.png
-   - Link: https://vercel.com/aristoavilla-6377s-projects/better-stack-to-do-claude-2-frontend
-   - Category: Frontend
-   - Date: April 2026
-   
-3. Telegram Bot with AI Integration
-   - Card Image: https://i.ibb.co.com/rnzyc9L/Helsinquay-Cover.png
-   - Details Image: https://i.ibb.co.com/Cp04PcTM/image.png
-   - Link: https://t.me/HelsinquayBot
-   - Category: Backend / Bot
-   - Date: 2026
-   
-4. Komuna Community Website
-   - Card Image: Use dummy placeholder image
-   - Details Image: Use dummy placeholder image
-   - Link: null (no link)
-   - Category: Full Stack
-   - Date: In Progress
-```
-
-4. Render images in card component instead of gradient
-5. Images should have aspect-ratio: 16/9 or 4/3 (decide based on design)
-6. Add `onClick` handler to route to detail page
+- Replace `<motion.section ...>` with `<AnimatedSection ...>`.
+- **No cards** → no stagger needed.
+- Keep the inner JSX unchanged.
 
 ---
 
-## PHASE 6: CREATE PROJECT DETAIL PAGES
+### 4.8 `src/components/Footer.tsx`
 
-### Task 6.1: Create Dynamic Routing Structure
-**Create New Files:**
+- Replace `<motion.footer ...>` with `<AnimatedSection ...>` (or keep `<motion.footer>` directly updated with `whileInView`).
+- **No card stagger** needed; the footer should fade as a single block.
 
-1. `src/pages/ProjectDetail.tsx` - Route handler component
-   - Uses URL parameter `:projectId` or `:projectSlug`
-   - Loads project data from projects array
-   - Renders ProjectDetailTemplate
+Because `AnimatedSection` renders a `<section>` tag, you should **not** use it for the footer. Instead, update the existing `<motion.footer>` directly:
 
-2. `src/components/ProjectDetailTemplate.tsx` - Reusable detail page layout
-   - Follows main design reference (header, hero image, content, call-to-action)
-   - Props: `project` object with all details
-   - Sections:
-     * Hero image (full-width, responsive)
-     * Project title
-     * Category badges
-     * Project description
-     * Technology stack list
-     * Featured images
-     * Call-to-action button (links to project)
-
-### Task 6.2: Set Up Client-Side Routing
-**File:** `src/App.tsx` or create `src/router.tsx`
-
-**Options:**
-- Option A: Use React Router (lightweight)
-- Option B: Use TanStack Router
-- Option C: Hash-based routing (simplest, no server needed)
-
-**Recommended:** React Router for flexibility
-```bash
-npm install react-router-dom
-```
-
-**Routes Needed:**
-- `/` - Home (existing)
-- `/project/:id` - Individual project detail page
-
-### Task 6.3: Update Portfolio Card Click Handler
-**File:** `src/components/Portfolio.tsx`
-
-**Changes:**
-1. Add click handler to each project card
-2. Navigate to `/project/{projectId}`
-3. Or make image/card clickable independently
-
----
-
-## PHASE 7: BACKGROUND ENHANCEMENT
-
-### Task 7.1: Add Abstract Background Motif
-**Files:** 
-- `src/app/globals.css` - Add background layer
-- OR `src/App.tsx` - Add background component
-
-**Implementation:**
-1. Add subtle abstract SVG or pattern background
-2. Keep minimalist style (not too prominent)
-3. Suggested options:
-   - Geometric shapes (circles, blobs) at low opacity (5-15%)
-   - Gradient mesh background
-   - Subtle grid or dot pattern
-4. Avoid: Loud colors, busy patterns, distracting effects
-5. Color: Keep neutral (grays, blacks) or match theme orange at very low opacity
-6. Apply to `body` or create BackgroundDecorations component
-
-**Pattern Suggestion:**
-```css
-background: linear-gradient(135deg, rgba(255, 122, 62, 0.03) 0%, rgba(0, 0, 0, 0.02) 100%);
-/* Add subtle geometric SVG overlay */
+```tsx
+<motion.footer
+  initial={{ opacity: 0, y: 18 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.2 }}
+  transition={{ duration: 0.55 }}
+  className="rounded-t-[2rem] bg-[#1b1c20] px-4 py-12 text-gray-300 md:px-8"
+>
 ```
 
 ---
 
-## PHASE 8: TESTING & VERIFICATION
+### 4.9 `src/components/BlogPosts.tsx`
 
-### Task 8.1: CLI Tests
-**Run:**
-```bash
-npm run dev
+- This component currently uses a plain `<section>`. Replace it with `<AnimatedSection>`.
+- Wrap the blog grid (`<div className="grid gap-5 md:grid-cols-3">`) in `<StaggerContainer>`.
+- Wrap each mapped `<article>` in `<StaggerItem>`.
+- **Add the missing `framer-motion` import** (this file currently does not import it).
+
+**Full updated wrapper structure:**
+```tsx
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
+
+// ... inside component:
+<AnimatedSection className="py-14 md:py-20">
+  <div className="content-wrap">
+    {/* title & button */}
+
+    <StaggerContainer className="grid gap-5 md:grid-cols-3">
+      {blogPosts.map((post) => (
+        <StaggerItem key={post.id}>
+          <article className="overflow-hidden rounded-2xl bg-white shadow-lg transition hover:-translate-y-1">
+            {/* ... article JSX ... */}
+          </article>
+        </StaggerItem>
+      ))}
+    </StaggerContainer>
+  </div>
+</AnimatedSection>
 ```
-
-**Verify:**
-1. ✓ Typing animation works on Hero heading
-2. ✓ Stagger animation visible on page load
-3. ✓ Hero section: single centered picture, buttons overlap
-4. ✓ WhyHireMe section: large overlapping picture visible
-5. ✓ Portfolio cards show project images
-6. ✓ Portfolio cards are clickable
-7. ✓ Clicking card navigates to detail page
-8. ✓ Detail page displays project info correctly
-9. ✓ Links work (external project links from detail page)
-10. ✓ Background has subtle motif
-11. ✓ All responsive breakpoints work
-
-### Task 8.2: Build Production
-**CLI Command:**
-```bash
-npm run build
-```
-
-**Verify:** No build errors, all assets included
 
 ---
 
-## FILE STRUCTURE CHANGES
+## Step 5 — Cleanup
 
-### New Files to Create:
-```
-src/
-├── hooks/
-│   └── useTypeEffect.ts (typing animation hook)
-├── pages/
-│   └── ProjectDetail.tsx (detail page component)
-├── components/
-│   ├── ProjectDetailTemplate.tsx (reusable detail layout)
-│   └── (modified) Portfolio.tsx
-│   └── (modified) Hero.tsx
-│   └── (modified) WhyHireMe.tsx
-└── (modified) App.tsx (routing)
-```
+1. **Remove unused `framer-motion` imports** from section files if they no longer directly use `motion`.
+   - Files using only `AnimatedSection` and `StaggerContainer` no longer need `import { motion } from "framer-motion"`.
+   - `Footer.tsx` still needs `motion` because it uses `<motion.footer>` directly.
+   - `Hero.tsx` no longer needs `motion` (unless it uses it elsewhere).
 
-### Modified Files:
-- `src/App.tsx` - Add routing
-- `src/components/Hero.tsx` - Center picture, overlap buttons, typing animation
-- `src/components/WhyHireMe.tsx` - Large overlapping picture
-- `src/components/Portfolio.tsx` - Add images, click handlers
-- `src/app/globals.css` - Background styling
-- `package.json` - New dependencies (framer-motion, router)
+2. **Verify `src/app/page.tsx` is unused.**
+   - `main.tsx` imports `App.tsx`, not `page.tsx`.
+   - **Leave `page.tsx` untouched** to avoid breaking anything.
 
 ---
 
-## PRIORITY ORDER (Recommended Execution)
+## Step 6 — Testing Checklist
 
-1. **FIRST:** Install dependencies (Task 1.1)
-2. **SECOND:** Hero section refactor + typing effect (Tasks 2.1, 4.1)
-3. **THIRD:** Why Hire Me section update (Task 3.1)
-4. **FOURTH:** Stagger animations (Task 4.2)
-5. **FIFTH:** Portfolio grid images (Task 5.1)
-6. **SIXTH:** Project detail pages + routing (Tasks 6.1, 6.2, 6.3)
-7. **SEVENTH:** Background enhancements (Task 7.1)
-8. **EIGHTH:** Testing (Task 8.1, 8.2)
+After implementing, run the dev server (`npm run dev`) and verify:
 
----
-
-## NOTES FOR SUB-AGENT
-
-- All image URLs are provided by the user - use them exactly as specified
-- Design reference mentioned: ensure all detail pages follow main site design consistency
-- Keep Tailwind CSS as styling approach
-- Minimize breaking changes to existing components
-- Test on multiple breakpoints (mobile, tablet, desktop)
-- Preserve existing functionality while adding new features
-- Use TypeScript for type safety
-- Following responsive design principles (existing Tailwind pattern)
-- Use CLI commands to test: `npm run dev` and `npm run build`
-- All work should be CLI-driven and verifiable via terminal output
+- [ ] **Hero** fades in on page load. When scrolled completely out of view, it fades out. Scrolling back up makes it fade in again.
+- [ ] **Services** only appears (and its network chunk loads) when you scroll near it. Its 3 cards appear sequentially left-to-right.
+- [ ] **WorkExperience** fades in/out as a whole section.
+- [ ] **WhyHireMe** fades in/out as a whole section.
+- [ ] **Portfolio** cards appear sequentially left-to-right. The section fades out when scrolled past.
+- [ ] **Testimonials** (TechStack) cards appear sequentially left-to-right.
+- [ ] **BlogPosts** cards appear sequentially left-to-right.
+- [ ] **Contact** fades in/out as a whole section.
+- [ ] **Footer** fades in/out as a whole section.
+- [ ] **Anchor links** (e.g., clicking "Services" in the nav/footer) still scroll correctly to each section.
+- [ ] **Build passes** (`npm run build` completes without errors).
 
 ---
 
-## CLI QUICK REFERENCE
+## Animation Timing Reference
 
-```bash
-# Start development
-npm run dev
+| Element | Duration | Delay / Stagger | Movement |
+|---------|----------|-----------------|----------|
+| Section fade | `0.55s` | — | `y: 18 → 0` |
+| Card stagger gap | — | `0.1s` | — |
+| Individual card | `0.4s` | — | `y: 12 → 0` |
+| Viewport trigger | — | — | `amount: 0.2` (20% visible) |
+| Lazy preload margin | — | — | `400px` before viewport |
 
-# Build production
-npm run build
+---
 
-# Preview build
-npm run preview
+## Notes for the Implementing Agent
 
-# Lint code
-npm run lint
-
-# Install new package
-npm install package-name
-```
+- **Do not** add `exit` animations via `AnimatePresence`. `whileInView` with `once: false` handles both enter and exit automatically.
+- **Do not** change any CSS class names or Tailwind utility classes inside the sections unless strictly necessary for the animation wrappers.
+- If a section feels like it re-animates too aggressively while scrolling, increase `amount` (e.g., to `0.3` or `0.4`) so it requires more visibility before fading in.
+- The `Hero` is at the top, so it will be in view immediately. Its chunk will load on mount, which is expected.

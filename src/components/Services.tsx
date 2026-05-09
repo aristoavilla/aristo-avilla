@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
 
 export default function Services() {
   const brandfetchClientId = "1bxid64Mup7aczewSAYMX";
@@ -41,12 +42,9 @@ export default function Services() {
   ];
 
   return (
-    <motion.section
+    <AnimatedSection
       id="service"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.2 }}
-      className="pb-16 md:pb-24"
+      className="pt-4 pb-16 md:pt-6 md:pb-24"
     >
       <div className="content-wrap">
         <div className="grain overflow-hidden rounded-[2rem] bg-[#101217] p-6 text-white shadow-2xl md:p-8">
@@ -59,9 +57,10 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <StaggerContainer className="grid gap-5 md:grid-cols-3">
             {services.map((service) => (
-              <div key={service.id} className="rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+              <StaggerItem key={service.id}>
+                <div className="rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
                 <h3 className="mb-4 text-xl font-medium">{service.title}</h3>
                 <div className="relative h-52 overflow-hidden rounded-2xl bg-gradient-to-br from-[#f0f1f5] to-white p-3">
                   <div className="absolute left-3 top-3 z-10 flex flex-wrap gap-2">
@@ -86,9 +85,10 @@ export default function Services() {
                     ↗
                   </button>
                 </div>
-              </div>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <div className="mt-6 flex justify-center gap-2">
             <span className="h-1.5 w-8 rounded-full bg-[#ff7a3e]" />
@@ -97,6 +97,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }

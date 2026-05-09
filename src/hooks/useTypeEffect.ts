@@ -13,13 +13,10 @@ export default function useTypeEffect(
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    let cursorTimer: number | undefined;
-    let typeTimer: number | undefined;
-
     setTypedText("");
     let index = 0;
 
-    typeTimer = window.setInterval(() => {
+    const typeTimer = window.setInterval(() => {
       index += 1;
       setTypedText(text.slice(0, index));
 
@@ -28,7 +25,7 @@ export default function useTypeEffect(
       }
     }, typingSpeed);
 
-    cursorTimer = window.setInterval(() => {
+    const cursorTimer = window.setInterval(() => {
       setShowCursor((current) => !current);
     }, blinkSpeed);
 

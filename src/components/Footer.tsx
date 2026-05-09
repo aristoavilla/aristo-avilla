@@ -29,8 +29,9 @@ export default function Footer() {
   return (
     <motion.footer
       initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.62 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.55 }}
       className="rounded-t-[2rem] bg-[#1b1c20] px-4 py-12 text-gray-300 md:px-8"
     >
       <div className="content-wrap">

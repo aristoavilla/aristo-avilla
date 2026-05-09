@@ -1,11 +1,8 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function WhyHireMe() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.32 }}
+    <AnimatedSection
       className="pb-16 md:pb-24"
     >
       <div className="content-wrap">
@@ -51,6 +48,6 @@ export default function WhyHireMe() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }

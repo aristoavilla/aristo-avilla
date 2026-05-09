@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
 
 export default function TechStack() {
   const categories = [
@@ -37,11 +38,8 @@ export default function TechStack() {
   ];
 
   return (
-    <motion.section
+    <AnimatedSection
       id="skills"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.46 }}
       className="pb-16 md:pb-24"
     >
       <div className="content-wrap">
@@ -55,9 +53,10 @@ export default function TechStack() {
             Tools and technologies I use to build fast, reliable, and scalable applications.
           </p>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2">
             {categories.map((cat) => (
-              <div key={cat.name} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <StaggerItem key={cat.name}>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#ff7a3e]">{cat.name}</h3>
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
@@ -69,11 +68,12 @@ export default function TechStack() {
                     </span>
                   ))}
                 </div>
-              </div>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }

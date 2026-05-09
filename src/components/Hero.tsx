@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 import useTypeEffect from "@/hooks/useTypeEffect";
 
 export default function Hero() {
@@ -10,11 +10,8 @@ export default function Hero() {
   const roleText = typedText.slice(prefix.length + name.length);
 
   return (
-    <motion.section
+    <AnimatedSection
       id="about"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.12 }}
       className="relative overflow-visible pb-8 pt-0 md:pb-12"
     >
       <div className="content-wrap">
@@ -80,6 +77,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }

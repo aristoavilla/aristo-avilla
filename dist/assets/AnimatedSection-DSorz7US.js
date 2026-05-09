@@ -1,0 +1,1 @@
+import{j as n,m as a}from"./index-DAva6k2X.js";function r({children:i,id:t,className:o}){return n.jsx(a.section,{id:t,initial:{opacity:0,y:18},whileInView:{opacity:1,y:0},viewport:{once:!1,amount:.2},transition:{duration:.55},className:o,children:i})}export{r as A};

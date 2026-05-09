@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function WorkExperience() {
   const experiences = [
@@ -28,11 +28,8 @@ export default function WorkExperience() {
   ];
 
   return (
-    <motion.section
+    <AnimatedSection
       id="resume"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.26 }}
       className="pb-16 md:pb-24"
     >
       <div className="content-wrap">
@@ -70,6 +67,6 @@ export default function WorkExperience() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }

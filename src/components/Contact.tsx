@@ -1,12 +1,9 @@
-import { motion } from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function Contact() {
   return (
-    <motion.section
+    <AnimatedSection
       id="contact"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.54 }}
       className="pb-10 md:pb-14"
     >
       <div className="content-wrap">
@@ -48,6 +45,6 @@ export default function Contact() {
           React ✦ TypeScript ✦ Hono ✦ PostgreSQL ✦ Cloudflare Workers ✦ Fullstack Development ✦
         </div>
       </div>
-    </motion.section>
+    </AnimatedSection>
   );
 }
